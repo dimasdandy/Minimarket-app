@@ -1,0 +1,20 @@
+<div class="row" style="height: 100vh; width: 100%;">
+    <div class="col no-gutters picture">
+        <img src="../../../assets/pictures/minimarket-ilus.jpg" width="700px" height="500px" />
+    </div>
+    <div class="col no-gutters form">
+        <div style="margin-bottom: 30px; align-self:auto ;">
+            <h1>Welcome!</h1>
+        </div>
+        <div class="mb-3" style="display: flex; flex-direction: column;">
+            <label style="margin-bottom: 10px;">Username</label>
+            <input class="text-input" type="text" pInputText [(ngModel)]="loginReqDto.username" [style]="{'width':'500px'}" />
+        </div>
+        <div class="mb-3" style="display: flex; flex-direction: column;">
+            <label style="margin-bottom: 10px;">Password</label>
+            <input class="text-input" type="password" pInputText [(ngModel)]="loginReqDto.password" [style]="{'width':'500px'}" />
+        </div>
+        <button pButton type="button" label="LOGIN" class="p-button-warning button" [style]="{'width':'500px'}" 
+            (click)="login()"></button>
+    </div>
+</div>

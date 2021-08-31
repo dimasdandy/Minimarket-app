@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="my-3">
+        <h1 style="margin-bottom: 40px">Product Insert</h1>
+        <span class="p-float-label" style="margin-bottom: 35px">
+            <input id="float-input" type="text" pInputText [(ngModel)]='productReq.name' style="width: 100%;">
+            <label for="float-input">Name</label>
+        </span>
+        <span class="p-float-label" style="margin-bottom: 35px">
+            <input id="float-input" type="password" pInputText [(ngModel)]='productReq.code' style="width: 100%;">
+            <label for="float-input">Code</label>
+        </span>
+        <span class="p-float-label" style="margin-bottom: 25px">
+            <input id="float-input" type="number" pInputText [(ngModel)]='productReq.price' style="width: 100%;">
+            <label for="float-input">Price</label>
+        </span>
+        <span class="p-float-label" style="margin-bottom: 25px">
+            <input id="float-input" type="number" pInputText [(ngModel)]='productReq.stock' style="width: 100%;">
+            <label for="float-input">Stock</label>
+        </span>
+
+        <div class="mb-3">
+            <label class="mb-2">Category</label>
+            <br>
+            <p-dropdown [options]="data" [(ngModel)]="productReq.category" optionLabel="name" optionValue="id" [showClear]="true"
+                placeholder="Select a Role" [style]="{'width':'100%'}"></p-dropdown>
+        </div>
+
+        <div class="mb-5">
+            <label class="form-label">Active</label>
+            <div>
+                <p-radioButton name="activeRadio" [value]="true" [(ngModel)]='productReq.isActive'
+                    [style]="{'width':'5px%'}"></p-radioButton>
+                <label style="margin-right: 15px;">
+                    Yes
+                </label>
+
+                <p-radioButton name="activeRadio" [value]="false" [(ngModel)]='productReq.isActive'
+                    [style]="{'width':'5px%'}"></p-radioButton>
+                <label>
+                    No
+                </label>
+            </div>
+        </div>
+        <button pButton type="button" label="Submit" class="p-button-primary" (click)="onClick()"
+            style="height:100%; width: 100%;"></button>
+    </div>
+</div>

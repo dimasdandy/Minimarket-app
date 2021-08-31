@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="my-3">
+        <h1 style="margin-bottom: 40px">Payment Update</h1>
+        <span class="p-float-label" style="margin-bottom: 35px">
+            <input id="float-input" type="text" pInputText [(ngModel)]='payment.name' style="width: 100%;">
+            <label for="float-input">Name</label>
+        </span>
+        <span class="p-float-label" style="margin-bottom: 25px">
+            <input id="float-input" type="text" pInputText [(ngModel)]='payment.code' style="width: 100%;">
+            <label for="float-input">Code</label>
+        </span>
+
+        <div class="mb-5">
+            <label class="form-label">Active</label>
+            <div>
+                <p-radioButton name="activeRadio" [value]="true" [(ngModel)]='payment.isActive'
+                    style="margin-right: 5px;"></p-radioButton>
+                <label style="margin-right: 15px;">
+                    Yes
+                </label>
+
+                <p-radioButton name="activeRadio" [value]="false" [(ngModel)]='payment.isActive'
+                    style="margin-right: 5px;"></p-radioButton>
+                <label>
+                    No
+                </label>
+            </div>
+        </div>
+        <button pButton type="button" label="Update" class="p-button-primary"
+            (click)="onClick()" style="height:100%; width: 100%;"></button>
+    </div>
+</div>

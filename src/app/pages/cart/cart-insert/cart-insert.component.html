@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="my-3">
+        <h1 style="margin-bottom: 30px">Cart Insert</h1>
+        <div class="mb-3" hidden>
+            <label class="mb-2">Cashier</label>
+            <input type="text" class="form-control text-input" id="username">
+        </div>
+        <div class="mb-3">
+            <label class="mb-2">Member</label>
+            <br>
+            <p-dropdown [options]="dataMember" [(ngModel)]="cartReq.header.member" optionLabel="name" optionValue="id"
+                [showClear]="true" placeholder="Select a Member" [style]="{'width':'100%'}"></p-dropdown>
+        </div>
+        <div class="mb-3">
+            <label class="mb-2">Payment</label>
+            <br>
+            <p-dropdown [options]="dataPayment" [(ngModel)]="cartReq.header.payment" optionLabel="name" optionValue="id"
+                [showClear]="true" placeholder="Select a Payment" [style]="{'width':'100%'}"></p-dropdown>
+        </div>
+
+        <div class="mb-3" *ngIf="!isPaymentCash">
+            <label for="exampleInputEmail1" class="form-label">Cash</label>
+            <input type="text" class="form-control text-input" id="return-cash">
+        </div>
+
+        <hr>
+        <div class="mb-3">
+            <label class="mb-2">Products</label>
+            <div class="mb-3" style="display: flex; justify-content: space-between;">
+                <select class="form-select" (change)="productChange($event.target)" [(ngModel)]='cartReq.details'>
+                    <option *ngFor="let product of dataProduct;" [value]="product.id" style="width: 100%;">
+                        {{product.name}}</option>
+                </select>
+                <input id="float-input" type="text" pInputText [(ngModel)]='cartDtlReq.quantity' placeholder="Quantity"
+                    style="width: 100%;">
+            </div>
+            <button pButton type="button" label="Add" icon="pi pi-plus" iconPos="left" class="p-button-success"
+                (click)="onSave()" style="height:35px; width: auto;"></button>
+        </div>
+
+        <hr>
+        <div class="mb-3">
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex justify-content-between align-items-start"
+                    *ngFor="let productMod of productList;">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">{{productMod.name}}</div>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">{{productMod.quantity}}</span>
+                </li>
+            </ol>
+        </div>
+
+        <button pButton type="button" label="Submit" class="p-button-primary" (click)="onClick()"
+            style="height:100%; width: 100%;"></button>
+    </div>
+</div>
